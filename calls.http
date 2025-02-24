@@ -1,0 +1,23 @@
+@baseUrl  = localhost
+@integrationName = test
+
+GET http://{{baseUrl}}/users
+Workspaces-Identifier: jnkconsult
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip
+X-Integration-Name: {{integrationName}}
+
+###
+
+POST http://{{baseUrl}}/login
+Workspaces-Identifier: jnkconsult
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip
+X-Integration-Name: {{integrationName}}
+
+{
+    "email" : "jms@grazulex.be",
+    "password" : "password"
+}
