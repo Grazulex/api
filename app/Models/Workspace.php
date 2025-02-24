@@ -21,13 +21,21 @@ class Workspace extends Model implements Tenant, TenantHasResources
         'description',
         'identifier',
         'resource_key'
-    ];  
+    ];
 
     public function users(): HasMany
     {
         return $this->hasMany(
             User::class,
             'user_id'
+        );
+    }
+
+    public function projects(): HasMany
+    {
+        return $this->hasMany(
+            Project::class,
+            'workspace_id'
         );
     }
 }

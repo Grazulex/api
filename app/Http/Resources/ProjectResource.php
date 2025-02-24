@@ -2,12 +2,10 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Workspace;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @property Workspace $resource */
-final class WorkspaceResource extends JsonResource
+class ProjectResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,13 +16,12 @@ final class WorkspaceResource extends JsonResource
     {
         return [
             'id' => $this->resource->id,
-            'name' =>  $this->resource->name,
+            'name' => $this->resource->name,
             'description' => $this->resource->description,
-            'identifier' => $this->resource->identifier,
-            'created' => new DateResource($this->resource->created_at),
-            'projects' => ProjectResource::collection(
-                $this->whenLoaded('projects')
-            )
+            'created' => new DateResource($this->resource->create_at),
+            'workspace' => new WorkspaceResource(
+                $this->whenLoaded('workspace')
+            ),
         ];
     }
 }
