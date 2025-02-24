@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @property Workspace $resource */
-class WorkspaceResource extends JsonResource
+final class WorkspaceResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
