@@ -9,9 +9,9 @@ use Laravel\Sanctum\Http\Middleware\CheckForAnyAbility;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
-        api: __DIR__.'/../routes/api/routes.php',
+        api: __DIR__ . '/../routes/api/routes.php',
         apiPrefix: '',
-        commands: __DIR__.'/../routes/console.php',
+        commands: __DIR__ . '/../routes/console/routes.php',
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
@@ -21,7 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 'ability' => CheckForAnyAbility::class,
                 'identifier' => IntegrationNameHeader::class
             ]
-            );
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
