@@ -8,9 +8,14 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 Route::tenanted(function (Router $router) {
-    $router->get('/users', function() {
-        return response()->json(User::all());
-    })->middleware(['identifier']);
+    $router->middleware(['identifier'])->as('auth:')->prefix('auth')->group(static function () use ($router): void {
+        $router->post('login', LoginController::class);
+    });
 
-    $router->post('login', LoginController::class);
+
+    $router->middleware(['auth:sanctum'])->group(static function () use ($router): void {
+        $router->get('/users', function () {
+            return response()->json(User::all());
+        });
+    });
 });
