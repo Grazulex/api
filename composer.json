@@ -13,7 +13,7 @@
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
-        "sprout/sprout": "1.x-dev"
+        "sprout/sprout": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -71,6 +71,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
