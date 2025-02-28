@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class WorkspaceFactory extends Factory
 {
-
     protected $model = Workspace::class;
+
     /**
      * Define the model's default state.
      *
@@ -23,7 +23,7 @@ class WorkspaceFactory extends Factory
             'name' => $this->faker->unique()->company(),
             'description' => $this->faker->realText(),
             'identifier' => $this->faker->unique()->userName(),
-            'resource_key' => $this->faker->unique()->uuid()
+            'resource_key' => $this->faker->unique()->uuid(),
         ];
     }
 }

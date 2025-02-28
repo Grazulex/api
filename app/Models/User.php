@@ -15,7 +15,7 @@ use Sprout\Database\Eloquent\Concerns\BelongsToTenant;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasApiTokens, BelongsToTenant, HasUlids, SoftDeletes;
+    use BelongsToTenant, HasApiTokens, HasFactory, HasUlids, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +27,7 @@ class User extends Authenticatable
         'email',
         'password',
         'workspace_id',
-        'email_verified_at'
+        'email_verified_at',
     ];
 
     /**

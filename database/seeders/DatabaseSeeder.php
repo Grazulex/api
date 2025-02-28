@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'JnkConsult',
                 'description' => 'This is the default workspace',
-                'identifier' => 'jnkconsult'
+                'identifier' => 'jnkconsult',
             ]
         );
         // User::factory(10)->create();

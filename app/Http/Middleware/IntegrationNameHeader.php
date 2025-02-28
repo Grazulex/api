@@ -19,9 +19,10 @@ class IntegrationNameHeader
     {
         if (! $request->hasHeader('X-Integration-Name')) {
             throw new \InvalidArgumentException(
-                message: 'The request must contain the X-Integration-Name header', 
+                message: 'The request must contain the X-Integration-Name header',
                 code: Response::HTTP_BAD_REQUEST);
         }
+
         return $next($request);
     }
 }

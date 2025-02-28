@@ -15,9 +15,8 @@ Route::tenanted(function (Router $router) {
         $router->post('login', LoginController::class);
     });
 
-
     $router->middleware(['auth:sanctum'])->group(static function () use ($router): void {
-        $router->get('/users', fn() => new PaginatedCollectionResponse(UserResource::collection(User::query()->simplePaginate())));
+        $router->get('/users', fn () => new PaginatedCollectionResponse(UserResource::collection(User::query()->simplePaginate())));
         $router->post('/projects', Projects\StoreController::class)->name('store');
     });
 });

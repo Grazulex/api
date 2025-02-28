@@ -10,18 +10,13 @@ use App\Models\Workspace;
 use Illuminate\Database\DatabaseManager;
 use Sprout\Attributes\CurrentTenant;
 
-use function PHPUnit\Framework\callback;
-
 final class LoginController
 {
     public function __construct(
-        #[CurrentTenant] 
+        #[CurrentTenant]
         private Workspace $workspace,
         private DatabaseManager $database
-    )
-    {
-        
-    }
+    ) {}
 
     public function __invoke(LoginRequest $request): TokenResponse
     {
@@ -33,7 +28,7 @@ final class LoginController
         $token = $this->database->transaction(
             callback: fn () => $request->user()?->createToken(
                 name: $request->header('X-Integration-Name'),
-                abilities: [$this->workspace->indentifier . ':*'],
+                abilities: [$this->workspace->indentifier.':*'],
             ),
             attempts: 3,
         );
@@ -42,5 +37,4 @@ final class LoginController
             token: $token->plainTextToken
         );
     }
-
 }

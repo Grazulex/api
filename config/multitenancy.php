@@ -19,7 +19,7 @@ return [
 
     'defaults' => [
 
-        'tenancy'  => 'workspaces',
+        'tenancy' => 'workspaces',
         'provider' => 'workspaces',
         'resolver' => 'header',
 
@@ -48,7 +48,7 @@ return [
 
         'workspaces' => [
             'provider' => 'workspaces',
-            'options'  => [
+            'options' => [
                 TenancyOptions::hydrateTenantRelation(),
                 TenancyOptions::throwIfNotRelated(),
                 TenancyOptions::allOverrides(),
@@ -78,7 +78,7 @@ return [
 
         'workspaces' => [
             'driver' => 'eloquent',
-            'model'  => Workspace::class
+            'model' => Workspace::class,
         ],
 
         // 'backup' => [

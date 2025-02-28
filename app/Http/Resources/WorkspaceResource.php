@@ -18,13 +18,13 @@ final class WorkspaceResource extends JsonResource
     {
         return [
             'id' => $this->resource->id,
-            'name' =>  $this->resource->name,
+            'name' => $this->resource->name,
             'description' => $this->resource->description,
             'identifier' => $this->resource->identifier,
             'created' => new DateResource($this->resource->created_at),
             'projects' => ProjectResource::collection(
                 $this->whenLoaded('projects')
-            )
+            ),
         ];
     }
 }

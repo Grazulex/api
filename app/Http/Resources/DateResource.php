@@ -18,7 +18,7 @@ final class DateResource extends JsonResource
     {
         return [
             'human' => $this->resource->diffForHumans(),
-            'string' =>  $this->resource->toIso8601String()
+            'string' => $this->resource->toIso8601String(),
         ];
     }
 }

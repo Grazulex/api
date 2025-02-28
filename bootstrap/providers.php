@@ -5,5 +5,5 @@ use App\Providers\SanctumServiceProvider;
 
 return [
     AppServiceProvider::class,
-    SanctumServiceProvider::class
+    SanctumServiceProvider::class,
 ];

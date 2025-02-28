@@ -40,7 +40,7 @@ return [
 
         'tenanted' => [
             'driver' => 'sprout',
-            'disk' => 'local'
+            'disk' => 'local',
         ],
 
         'public' => [

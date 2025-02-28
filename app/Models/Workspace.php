@@ -14,13 +14,13 @@ use Sprout\Database\Eloquent\Concerns\IsTenant;
 class Workspace extends Model implements Tenant, TenantHasResources
 {
     /** @use HasFactory<\Database\Factories\WorkspaceFactory> */
-    use HasFactory, HasUlids, IsTenant, HasTenantResources;
+    use HasFactory, HasTenantResources, HasUlids, IsTenant;
 
     protected $fillable = [
         'name',
         'description',
         'identifier',
-        'resource_key'
+        'resource_key',
     ];
 
     public function users(): HasMany

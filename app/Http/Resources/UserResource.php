@@ -25,7 +25,7 @@ final class UserResource extends JsonResource
 
             ],
             'created' => new DateResource($this->resource->created_at),
-            'workspace' =>  new WorkspaceResource($this->whenLoaded('workspace'))
+            'workspace' => new WorkspaceResource($this->whenLoaded('workspace')),
         ];
     }
 }

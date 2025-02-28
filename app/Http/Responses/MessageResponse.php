@@ -8,21 +8,19 @@ use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-final readonly class TokenResponse implements Responsable
+final class MessageResponse implements Responsable
 {
     public function __construct(
-        private readonly string $token,
-        private readonly int $status = Response::HTTP_OK
+        private string $message,
+        private int $status = Response::HTTP_OK,
     ) {}
 
     public function toResponse($request): Response
     {
         return new JsonResponse(
-            data: [
-                'token' => $this->token,
-            ],
+            data: ['message' => $this->message],
             status: $this->status,
-            headers: [],
+            headers: []
         );
     }
 }

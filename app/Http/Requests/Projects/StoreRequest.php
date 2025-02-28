@@ -11,15 +11,15 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'description' => ['required', 'string', 'min:3', 'max:255']
+            'description' => ['required', 'string', 'min:3', 'max:255'],
         ];
     }
 
     public function payload(): NewProject
     {
         return new NewProject(
-            $this->string('name')->toString(),
-            $this->string('description')->toString(),
+            name: $this->string('name')->toString(),
+            description: $this->string('description')->toString(),
         );
     }
 }

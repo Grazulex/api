@@ -32,10 +32,15 @@ Authorization: Bearer {{token}}
 
 @token = {{login.response.body.$.token}}
 
-GET http://{{baseUrl}}/projects
+POST http://{{baseUrl}}/projects
 Workspaces-Identifier: jnkconsult
 Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip
 X-Integration-Name: {{integrationName}}
 Authorization: Bearer {{token}}
+
+{
+    "name" : "Project 1",
+    "description" : "Project 1 description"
+}
