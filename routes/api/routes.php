@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Projects;
+use App\Http\Resources\ProjectResource;
 use App\Http\Resources\UserResource;
 use App\Http\Responses\PaginatedCollectionResponse;
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +18,8 @@ Route::tenanted(function (Router $router) {
     });
 
     $router->middleware(['auth:sanctum'])->group(static function () use ($router): void {
-        $router->get('/users', fn () => new PaginatedCollectionResponse(UserResource::collection(User::query()->simplePaginate())));
+        $router->get('/users', fn() => new PaginatedCollectionResponse(UserResource::collection(User::query()->simplePaginate())));
+        $router->get('/projects', fn() => new PaginatedCollectionResponse(ProjectResource::collection(Project::query()->simplePaginate())));
         $router->post('/projects', Projects\StoreController::class)->name('store');
     });
 });
